@@ -44,6 +44,20 @@ def big_main(fin):
 	return  tyl1(surn) + tyl2(name) + tyl3(int(date), int(month), int(year), gender)
 
 
+def temp12(fin):
+	name = fin["name"]
+	surn = fin["surname"]
+	gender = fin["gender"]
+	dob = fin["dob"]
+	out ="Name       :   " + name + "<br>"
+	out+="Surnname   :   " + surn + "<br>"
+	out+="Gender     :   " + gender + "<br>"
+	out+="DoB        :   " + dob + "<br>
+	"
+	
+	return out
+
+
 def tyl1(sname):
 	
 	consonants='bcdfghjklmnpqrstvwxyz'
@@ -163,11 +177,11 @@ def upload():
 		data = request.form.to_dict(flat= True)
 		
 		output=big_main(data)
+		output2=temp12(data)
+		outputhead="<head><html style=\"width:100vw\"><style> html{background-color:#222;color:#eee; align-text:center; padding-top:25%; font-size:45;}</style></head><body style=\"width:100vw\"><div class=container style=\"text-align:center;\">"
+		outputtail="</div></body></html>"
 		
-		outputhead="<head><html><style> html{background-color:#222; color:#eee; align-text:center; padding-top:25%; font-size:300}</style></head><body>
-		
-		
-		return output
+		return outputhead + output2 + "<br><br>CodiceFiscae for above information is :<br>" + output  + outputtail
 
 
 
@@ -176,4 +190,4 @@ def upload():
 
 	
 if __name__=='__main__':
-	app.run(host='0.0.0.0', port=8080, debug=True)
+	app.run(host='0.0.0.0', port=80, debug=True)
