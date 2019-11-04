@@ -1,0 +1,7 @@
+fiscalCode({
+	"name":"Mickey",
+	"surname":"Mouse",
+	"gender":"M",
+	"dob":"16/1/1928"
+
+})
